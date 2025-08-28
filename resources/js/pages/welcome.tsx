@@ -93,13 +93,13 @@ export default function Welcome() {
                                     <div className="flex space-x-3">
                                         <Link
                                             href={route('login')}
-                                            className="text-green-600 hover:text-green-700 px-4 py-2 rounded-lg border border-green-600 hover:bg-green-50 transition-colors font-medium"
+                                            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                                         >
-                                            Sign In
+                                            🔐 Login
                                         </Link>
                                         <Link
                                             href={route('register')}
-                                            className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium"
+                                            className="text-green-600 hover:text-green-700 px-6 py-3 rounded-lg border-2 border-green-600 hover:bg-green-50 transition-colors font-semibold"
                                         >
                                             Register as Alumni
                                         </Link>
@@ -129,20 +129,21 @@ export default function Welcome() {
                                             <p className="text-xl mb-8 text-white/90 leading-relaxed">
                                                 {slide.description}
                                             </p>
-                                            <div className="flex space-x-4">
+                                            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
                                                 {!auth.user && (
                                                     <>
                                                         <Link
-                                                            href={route('register')}
-                                                            className="bg-white text-green-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold text-lg"
+                                                            href={route('login')}
+                                                            className="bg-white text-green-600 px-10 py-4 rounded-lg hover:bg-gray-100 transition-all duration-300 font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 flex items-center justify-center space-x-2"
                                                         >
-                                                            Get Started
+                                                            <span>🔐</span>
+                                                            <span>Login - All Users Welcome</span>
                                                         </Link>
                                                         <Link
-                                                            href={route('login')}
-                                                            className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white/10 transition-colors font-semibold text-lg"
+                                                            href={route('register')}
+                                                            className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-colors font-semibold text-lg"
                                                         >
-                                                            Sign In
+                                                            Register as Alumni
                                                         </Link>
                                                     </>
                                                 )}
@@ -187,6 +188,47 @@ export default function Welcome() {
                                 }`}
                             />
                         ))}
+                    </div>
+                </section>
+
+                {/* User Access Section */}
+                <section className="py-12 bg-green-50">
+                    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center">
+                            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                                🚪 Universal Access Portal
+                            </h3>
+                            <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">
+                                One login portal serves all user types. Whether you're an alumni, administrator, or faculty member (dosen), 
+                                use the same <strong>Login</strong> button to access your personalized dashboard.
+                            </p>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                                <div className="bg-blue-50 p-6 rounded-xl">
+                                    <div className="text-3xl mb-3">👩‍🎓</div>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Alumni</h4>
+                                    <p className="text-sm text-gray-600">Complete surveys, track career progress, update profile information</p>
+                                </div>
+                                <div className="bg-purple-50 p-6 rounded-xl">
+                                    <div className="text-3xl mb-3">👩‍💼</div>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Administrators</h4>
+                                    <p className="text-sm text-gray-600">Access reports, manage users, analyze employment data</p>
+                                </div>
+                                <div className="bg-green-50 p-6 rounded-xl">
+                                    <div className="text-3xl mb-3">👨‍🏫</div>
+                                    <h4 className="font-semibold text-gray-900 mb-2">Faculty (Dosen)</h4>
+                                    <p className="text-sm text-gray-600">View academic outcomes, curriculum insights, student success metrics</p>
+                                </div>
+                            </div>
+                            
+                            <Link
+                                href={route('login')}
+                                className="bg-green-600 text-white px-12 py-4 rounded-lg hover:bg-green-700 transition-all duration-300 font-bold text-xl shadow-xl hover:shadow-2xl transform hover:scale-105 inline-flex items-center space-x-3"
+                            >
+                                <span>🔐</span>
+                                <span>Login - All User Types</span>
+                            </Link>
+                        </div>
                     </div>
                 </section>
 
@@ -287,21 +329,34 @@ export default function Welcome() {
 
                 {/* CTA Section */}
                 {!auth.user && (
-                    <section className="py-16 bg-gray-50">
+                    <section className="py-16 bg-gradient-to-r from-green-600 to-green-700">
                         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                            <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                                Join Our Alumni Community
+                            <h3 className="text-3xl font-bold text-white mb-6">
+                                Ready to Get Started? 📚
                             </h3>
-                            <p className="text-xl text-gray-600 mb-8">
-                                Help us improve our midwifery program by sharing your career journey. 
-                                Your insights make a difference for future graduates.
+                            <p className="text-xl text-green-100 mb-8">
+                                Join our platform today! Alumni can register to participate in career tracking surveys, 
+                                while administrators and faculty can request access through existing channels.
                             </p>
-                            <Link
-                                href={route('register')}
-                                className="bg-green-600 text-white px-10 py-4 rounded-lg hover:bg-green-700 transition-colors font-semibold text-lg inline-block"
-                            >
-                                Register as Alumni Today
-                            </Link>
+                            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                                <Link
+                                    href={route('login')}
+                                    className="bg-white text-green-600 px-10 py-4 rounded-lg hover:bg-gray-100 transition-all duration-300 font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 inline-flex items-center justify-center space-x-2"
+                                >
+                                    <span>🔐</span>
+                                    <span>Login Now</span>
+                                </Link>
+                                <Link
+                                    href={route('register')}
+                                    className="border-2 border-white text-white px-10 py-4 rounded-lg hover:bg-white/10 transition-colors font-semibold text-lg inline-flex items-center justify-center space-x-2"
+                                >
+                                    <span>👩‍🎓</span>
+                                    <span>Register as Alumni</span>
+                                </Link>
+                            </div>
+                            <p className="text-green-200 text-sm mt-6">
+                                💡 <strong>New here?</strong> Alumni can register directly. Administrators and faculty should contact IT support for account setup.
+                            </p>
                         </div>
                     </section>
                 )}
